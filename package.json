@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "npm run build && npm-run-all --parallel watch browse",
+        "start": "npm-run-all --parallel watch browse",
         "browse": "browser-sync start --s --index 'index.html' --files 'src/partials/**/*.mustache, src/**/*.js' --no-notify",
         "build": "rollup -c",
         "watch": "nodemon --exec 'npm run build' --watch src"
