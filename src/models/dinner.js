@@ -18,12 +18,10 @@ export default class {
 
     addObserver(key, value) {
         this.observers.set(key, value);
-        console.log('SIZE', this.observers.size);
     }
 
     notifyObservers(arg) {
         this.observers.forEach((value, key) => {
-            console.log('About to call...', key);
             value(arg);
         });
     }
@@ -39,7 +37,6 @@ export default class {
         return this.numberOfGuests;
     }
 
-    // returns id of dish
     getSelectedDish(type) {
         return this.menu[type];
     }
@@ -68,6 +65,12 @@ export default class {
         return ingredients;
     }
 
+    // Given a dish id return ingredients total cost
+    getTotalIngredientsPrice(id) {
+        const dish = this.getDish(id);
+        return dish.ingredients.reduce(((a, b) => a + b.price), 0);
+    }
+
     getTotalMenuPrice() {
         const ingredients = this.getAllIngredients();
         const numberOfGuests = this.getNumberOfGuests();
@@ -78,11 +81,8 @@ export default class {
         return sum;
     }
 
-
-
     addDishToMenu(id) {
         this.menu[this.getDish(id).type] = id;
-        console.log('MENU', this.menu);
         this.notifyObservers({type: RENDER_RECEIPT});
     }
 
@@ -96,20 +96,20 @@ export default class {
 
     getAllDishes(type, filter) {
         return this.dishes.filter((dish) => {
-	        let found = true;
-		    if(filter){
-			    found = false;
-			    dish.ingredients.forEach((ingredient) => {
-				    if(ingredient.name.indexOf(filter) != -1) {
-					    found = true;
-				    }
-			    });
-			    if(dish.name.indexOf(filter) != -1) {
-				    found = true;
-			    }
-		    }
-	  	    return dish.type === type && found;
-	    });
+            let found = true;
+            if(filter){
+                found = false;
+                dish.ingredients.forEach((ingredient) => {
+                    if(ingredient.name.indexOf(filter) != -1) {
+                        found = true;
+                    }
+                });
+                if(dish.name.indexOf(filter) != -1) {
+                    found = true;
+                }
+            }
+            return dish.type === type && found;
+        });
     }
 
     getDish(id) {
@@ -117,6 +117,6 @@ export default class {
             if(this.dishes[key].id == id) {
                 return this.dishes[key];
             }
-		}
+        }
     }
 }

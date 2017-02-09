@@ -2,8 +2,17 @@
 <div id="receipt"></div>
 <hr>
 
-{{!Buttons to add or remove the number of guests}}
 <center>
+    {{!Choose what kind of dish you want}}
+    <div class="input-field col s12">
+        <select id="selectType">
+            <option value="1">starter</option>
+            <option value="2">main dish</option>
+            <option value="3">dessert</option>
+        </select>
+        <label>Select type</label>
+    </div>
+    {{!Buttons to add or remove the number of guests}}
     <button
         id="plusButton"
         class="btn-floating btn-large waves-effect waves-light red">
@@ -25,8 +34,12 @@
 </div>
 <hr>
 
-{{!inject modal here}}
-<div id="modal" class="modal"></div>
-
 {{!inject dishes here}}
 <div id="dishes"></div>
+
+<a
+    href="./confirm"
+    class="waves-effect waves-light btn-large"
+    role="button">
+    Confirm dinner
+</a>

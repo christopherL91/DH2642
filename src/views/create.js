@@ -13,7 +13,6 @@ export default async (container, dinnerModel) => {
     const createTemplate = await loadTemplate('create');
     const receiptTemplate = await loadTemplate('receipt');
     const dishesTemplate = await loadTemplate('dishes');
-    const modalTemplate = await loadTemplate('modal');
 
     // Render create template
     container.innerHTML = Mustache.render(createTemplate, {
@@ -26,22 +25,18 @@ export default async (container, dinnerModel) => {
     const searchField = container.querySelector('#search');
     const receiptNode = container.querySelector('#receipt');
     const dishesNode = container.querySelector('#dishes');
-    const modalNode = container.querySelector('#modal');
+    const optionsNode = container.querySelector('#selectType');
 
     // Initial render
     receiptNode.innerHTML = Mustache.render(receiptTemplate, {
         title: 'Receipt',
         menu: dinnerModel.getFullMenu() || {name: 'pending', cost: 0},
+        total: dinnerModel.getTotalMenuPrice(),
     });
 
     // Initial render
     dishesNode.innerHTML = Mustache.render(dishesTemplate, {
-        dishes: dinnerModel.getAllDishes('starter'),
-    });
-
-    // Initial render
-    modalNode.innerHTML = Mustache.render(modalTemplate, {
-        name: 'kalle',
+        dishes: dinnerModel.getAllDishes(optionsNode.options[optionsNode.options.selectedIndex].text),
     });
 
     const update = (payload) => {
@@ -62,12 +57,12 @@ export default async (container, dinnerModel) => {
             case RENDER_DISHES:
                 dishesNode.innerHTML = Mustache.render(dishesTemplate, {
                     numberOfGuests: dinnerModel.getNumberOfGuests(),
-                    dishes: dinnerModel.getAllDishes('starter', arg),
+                    dishes: dinnerModel.getAllDishes(arg.dishType, arg.filter),
                 });
                 break;
         }
     };
 
     dinnerModel.addObserver('createView', update);
-    return {plusButton, minusButton, searchField};
+    return {plusButton, minusButton, searchField, optionsNode};
 };

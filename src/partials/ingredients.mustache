@@ -3,17 +3,21 @@
 <table class="responsive-table">
     <thead>
         <tr>
+            <th data-field="quantity">Quantity</th>
+            <th data-field="unit">Unit</th>
             <th data-field="name">Name</th>
-            <th data-field="cost">Cost</th>
+            <th data-field="price">Price</th>
         </tr>
     </thead>
     <tbody>
-        {{#menu}}
+        {{#ingredients}}
             <tr>
+                <td>{{quantity}}</td>
+                <td>{{unit}}</td>
                 <td>{{name}}</td>
-                <td>{{cost}} SEK</td>
+                <td>{{price}} SEK</td>
             </tr>
-        {{/menu}}
+        {{/ingredients}}
     </tbody>
     <tfoot>
         <tr>

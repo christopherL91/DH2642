@@ -1,0 +1,23 @@
+{{!Inject receipt template here}}
+<div id="receipt"></div>
+<hr>
+
+<h1>{{dish.name}}</h1>
+{{!Inject ingredients template here}}
+<div id="ingredients"></div>
+<hr>
+
+<img src=/src/images/{{dish.image}}>
+<span>{{dish.description}}</span>
+<br>
+<button
+    id="addDishButton"
+    data-id="{{dish.id}}"
+    class="btn-floating btn-large waves-effect waves-light red">
+    <i class="material-icons">add</i>
+</button>
+<button
+    id="backButton"
+    class="btn-floating btn-large waves-effect waves-light red">
+    <i class="material-icons">arrow_back</i>
+</button>
