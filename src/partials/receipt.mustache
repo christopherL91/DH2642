@@ -1,0 +1,24 @@
+<h3>{{title}}</h3>
+<hr>
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th data-field="name">Name</th>
+            <th data-field="cost">Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#menu}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{cost}}</td>
+            </tr>
+        {{/menu}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Sum</td>
+            <td>{{total}}</td>
+        </tr>
+  </tfoot>
+</table>

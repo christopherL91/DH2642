@@ -1,0 +1,5 @@
+'use strict';
+
+export const UPDATE_NUMBER_OF_GUESTS = 'UPDATE_NUMBER_OF_GUESTS';
+export const RENDER_RECEIPT = 'RENDER_RECEIPT';
+export const RENDER_DISHES = 'RENDER_DISHES';

@@ -5,8 +5,19 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
     entry: 'src/index.js',
     moduleName: 'mvc',
+    context: 'window',
     plugins: [
-        babel(),
+        babel({
+            presets: [
+                [
+                    "es2015", {
+                        "modules": false
+                    }
+                ]
+            ],
+            babelrc: false,
+            exclude: 'node_modules/**'
+        }),
         nodeResolve({
             jsnext: true,
             main: true,
