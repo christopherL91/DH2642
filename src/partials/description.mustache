@@ -7,17 +7,11 @@
 <div id="ingredients"></div>
 <hr>
 
-<img src=/src/images/{{dish.image}}>
-<span>{{dish.description}}</span>
-<br>
-<button
-    id="addDishButton"
-    data-id="{{dish.id}}"
-    class="btn-floating btn-large waves-effect waves-light red">
-    <i class="material-icons">add</i>
-</button>
-<button
-    id="backButton"
-    class="btn-floating btn-large waves-effect waves-light red">
-    <i class="material-icons">arrow_back</i>
-</button>
+<div style="margin-bottom: 20px;">
+  <img src=/src/images/{{dish.image}} />
+</div>
+<div>
+  <p>{{dish.description}}</p>
+</div>
+<button id="addDishButton" data-id="{{dish.id}}" class="btn btn-success">Add</button>
+<button id="backButton" class="btn btn-danger">Back</button>

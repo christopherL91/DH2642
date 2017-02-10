@@ -4,7 +4,7 @@ import {RENDER_DISHES} from '../constants.js';
 
 export default (view, dinnerModel) => {
     // Initialize select options
-    $('#selectType').material_select();
+    //$('#selectType').material_select();
 
     // When select options change
     $('#selectType').on('change', () => {

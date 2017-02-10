@@ -1,24 +1,22 @@
 <h3>{{title}}</h3>
 <hr>
-<table class="responsive-table">
-    <thead>
+<table class="table">
+  <thead>
+      <tr>
+          <th data-field="name">Name</th>
+          <th data-field="cost">Cost</th>
+      </tr>
+  </thead>
+  <tbody>
+    {{#menu}}
         <tr>
-            <th data-field="name">Name</th>
-            <th data-field="cost">Cost</th>
+            <td>{{name}}</td>
+            <td>{{cost}} SEK</td>
         </tr>
-    </thead>
-    <tbody>
-        {{#menu}}
-            <tr>
-                <td>{{name}}</td>
-                <td>{{cost}} SEK</td>
-            </tr>
-        {{/menu}}
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>Sum</td>
-            <td>{{total}} SEK</td>
-        </tr>
-  </tfoot>
+    {{/menu}}
+    <tr>
+      <td>Sum</td>
+      <td>{{total}} SEK</td>
+    </tr>
+  </tbody>
 </table>

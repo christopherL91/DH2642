@@ -1,23 +1,12 @@
 <div class="row">
     {{#dishes}}
-        <div class="col s6 m6">
-            <h3 class="header">{{name}}</h3>
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img src=/src/images/{{image}}>
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p>{{description}}</p>
-                    </div>
-                    <div class="card-action">
-                        <a
-                            href="./create/{{id}}"
-                            class="waves-effect waves-light btn-large"
-                            role="button">
-                            Info
-                        </a>
-                    </div>
+        <div class="col-4">
+            <div class="card" style="height: 650px; max-height: 650px; margin-bottom: 20px;">
+                <img class="card-img-top" src="/src/images/{{image}}" style="min-height: 225px;" />
+                <div class="card-block">
+                    <h4 class="card-title">{{name}}</h4>
+                    <p class="card-text" style="min-height:280px;">{{ description }}</p>
+                    <a href="./create/{{id}}" class="btn btn-success">Info</a>
                 </div>
             </div>
         </div>
