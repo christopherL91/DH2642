@@ -1,28 +1,26 @@
 <h3>{{title}}</h3>
 <hr>
-<table class="responsive-table">
-    <thead>
-        <tr>
-            <th data-field="quantity">Quantity</th>
-            <th data-field="unit">Unit</th>
-            <th data-field="name">Name</th>
-            <th data-field="price">Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#ingredients}}
-            <tr>
-                <td>{{quantity}}</td>
-                <td>{{unit}}</td>
-                <td>{{name}}</td>
-                <td>{{price}} SEK</td>
-            </tr>
-        {{/ingredients}}
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>Sum</td>
-            <td>{{total}} SEK</td>
-        </tr>
-  </tfoot>
+<table class="table">
+  <thead>
+      <tr>
+          <th data-field="quantity">Quantity</th>
+          <th data-field="unit">Unit</th>
+          <th data-field="name">Name</th>
+          <th data-field="price">Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      {{#ingredients}}
+          <tr>
+              <td>{{quantity}}</td>
+              <td>{{unit}}</td>
+              <td>{{name}}</td>
+              <td>{{price}} SEK</td>
+          </tr>
+      {{/ingredients}}
+      <tr>
+          <td>Sum</td>
+          <td>{{total}} SEK</td>
+      </tr>
+  </tbody>
 </table>

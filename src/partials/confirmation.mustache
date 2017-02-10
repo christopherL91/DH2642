@@ -1,25 +1,20 @@
 <h3>{{title}}</h3>
 
 {{#menu}}
+  <div>
     <img src="/src/images/{{image}}">
-    <span>{{name}}</span>
-    <span>{{cost}} SEK</span>
+  </div>
+  <div>
+    <p><span>{{name}}</span></p>
+    <p><span>{{cost}} SEK</span></p>
+  </div>
+
+
 {{/menu}}
 
-<span>Total {{total}} SEK </span>
-
-<br><br>
+<span>Total {{total}} SEK</span>
 <hr>
 
-<a
-    href="./print"
-    class="waves-effect waves-light btn-large"
-    role="button">
-    Print Full Recipe
-</a>
+<a href="./print" class="btn btn-primary" role="button">Print Full Recipe</a>
 
-<button
-    id="backButton"
-    class="btn-floating btn-large waves-effect waves-light red">
-    <i class="material-icons">arrow_back</i>
-</button>
+<button id="backButton" class="btn btn-danger">Back</button>
