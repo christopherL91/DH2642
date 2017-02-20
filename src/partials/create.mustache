@@ -4,13 +4,12 @@
 
     {{!Choose what kind of dish you want}}
     <div class="form-group">
-      <label>Select type</label>
+        <label>Select type</label>
         <select id="selectType">
-            <option value="1">starter</option>
-            <option value="2">main dish</option>
+            <option value="1">appetizer</option>
+            <option value="2">main course</option>
             <option value="3">dessert</option>
         </select>
-
     </div>
     {{!Buttons to add or remove the number of guests}}
     <button id="plusButton" class="btn btn-success">+</button>
@@ -19,14 +18,14 @@
 
 {{!Searchable field}}
 <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-  <div class="col">
-    <input id="search" type="text" class="validate form-control" placeholder="Search Dishes.."/>
-  </div>
+    <div class="col">
+        <input id="search" type="text" class="validate form-control"
+        placeholder="Search Dishes ..."/>
+    </div>
 </div>
 
 {{!inject dishes here}}
 <div id="dishes"></div>
-
 
 <p class="text-center" style="margin: 20px 0;">
   <a href="./confirm" class="btn btn-primary btn-large" role="button">Confirm dinner</a>

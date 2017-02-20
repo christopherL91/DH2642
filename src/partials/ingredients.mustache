@@ -3,19 +3,19 @@
 <table class="table">
   <thead>
       <tr>
-          <th data-field="quantity">Quantity</th>
+          <th data-field="amount">Amount</th>
           <th data-field="unit">Unit</th>
           <th data-field="name">Name</th>
-          <th data-field="price">Price</th>
+          <th data-field="cost">Cost</th>
       </tr>
   </thead>
   <tbody>
       {{#ingredients}}
           <tr>
-              <td>{{quantity}}</td>
+              <td>{{amount}}</td>
               <td>{{unit}}</td>
               <td>{{name}}</td>
-              <td>{{price}} SEK</td>
+              <td>{{cost}} SEK</td>
           </tr>
       {{/ingredients}}
       <tr>

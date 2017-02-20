@@ -28,18 +28,20 @@ export default async (container, dinnerModel) => {
     const optionsNode = container.querySelector('#selectType');
 
     // Initial render
+    const menu = await dinnerModel.getFullMenu();
     receiptNode.innerHTML = Mustache.render(receiptTemplate, {
         title: 'Receipt',
-        menu: dinnerModel.getFullMenu() || {name: 'pending', cost: 0},
-        total: dinnerModel.getTotalMenuPrice(),
+        menu: menu.menuDishes.length !== 0? menu.menuDishes : {title: 'pending', cost: 0},
+        total: menu.total,
     });
 
     // Initial render
+    const dishType = optionsNode.options[optionsNode.options.selectedIndex].text;
     dishesNode.innerHTML = Mustache.render(dishesTemplate, {
-        dishes: dinnerModel.getAllDishes(optionsNode.options[optionsNode.options.selectedIndex].text),
+        dishes: await dinnerModel.getAllDishes(dishType),
     });
 
-    const update = (payload) => {
+    const update = payload => {
         const {type, arg} = payload;
         console.log({type, arg});
         switch(type) {
@@ -47,17 +49,22 @@ export default async (container, dinnerModel) => {
                 numberOfGuests.innerHTML = dinnerModel.getNumberOfGuests();
                 break;
             case RENDER_RECEIPT:
-                console.log('fullmenu', dinnerModel.getFullMenu());
-                receiptNode.innerHTML = Mustache.render(receiptTemplate, {
-                    title: 'Receipt',
-                    menu: dinnerModel.getFullMenu(),
-                    total: dinnerModel.getTotalMenuPrice(),
+                dinnerModel.getFullMenu()
+                .then(menu => {
+                    receiptNode.innerHTML = Mustache.render(receiptTemplate, {
+                        title: 'Receipt',
+                        menu: menu.menuDishes.length !== 0? menu.menuDishes : {title: 'pending', cost: 0},
+                        total: menu.total,
+                    });
                 });
                 break;
             case RENDER_DISHES:
-                dishesNode.innerHTML = Mustache.render(dishesTemplate, {
-                    numberOfGuests: dinnerModel.getNumberOfGuests(),
-                    dishes: dinnerModel.getAllDishes(arg.dishType, arg.filter),
+                dinnerModel.getAllDishes(arg.dishType, arg.query)
+                .then(dishes => {
+                    dishesNode.innerHTML = Mustache.render(dishesTemplate, {
+                        numberOfGuests: dinnerModel.getNumberOfGuests(),
+                        dishes,
+                    });
                 });
                 break;
         }

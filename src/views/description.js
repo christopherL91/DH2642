@@ -12,7 +12,7 @@ export default async (id, container, dinnerModel) => {
     const ingredientsTemplate = await loadTemplate('ingredients');
 
     // The selected dish based on the url
-    const dish = dinnerModel.getDish(id);
+    const dish = await dinnerModel.getDish(id);
 
     // Render description template
     container.innerHTML = Mustache.render(descriptionTemplate, {dish});
@@ -23,27 +23,30 @@ export default async (id, container, dinnerModel) => {
     const backButton = container.querySelector('#backButton');
 
     // Initial render
+    const menu = await dinnerModel.getFullMenu();
     receiptNode.innerHTML = Mustache.render(receiptTemplate, {
         title: `Ingredients For ${dinnerModel.getNumberOfGuests()} people`,
-        menu: dinnerModel.getFullMenu() || {name: 'pending', cost: 0},
-        total: dinnerModel.getTotalMenuPrice(),
+        menu: menu.menuDishes.length !== 0? menu : {title: 'pending', cost: 0},
+        total: menu.total,
     });
 
     ingredientsNode.innerHTML = Mustache.render(ingredientsTemplate, {
-        ingredients: dish.ingredients,
-        total: dinnerModel.getTotalIngredientsPrice(id),
+        ingredients: dinnerModel.getIngredients(dish),
+        total: ingredients.cost,
     });
 
-    const update = (payload) => {
+    const update = payload => {
         const {type, arg} = payload;
         console.log({type, arg});
         switch(type) {
             case RENDER_RECEIPT:
-                console.log('fullmenu', dinnerModel.getFullMenu());
-                receiptNode.innerHTML = Mustache.render(receiptTemplate, {
-                    title: 'Receipt',
-                    menu: dinnerModel.getFullMenu(),
-                    total: dinnerModel.getTotalMenuPrice(),
+                dinnerModel.getFullMenu()
+                .then(menu => {
+                    receiptNode.innerHTML = Mustache.render(receiptTemplate, {
+                        title: `Ingredients For ${dinnerModel.getNumberOfGuests()} people`,
+                        menu: menu.menuDishes.length !== 0? menu : {title: 'pending', cost: 0},
+                        total: menu.total,
+                    });
                 });
                 break;
         }

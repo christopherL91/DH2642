@@ -2,10 +2,11 @@
     {{#dishes}}
         <div class="col-4">
             <div class="card" style="height: 650px; max-height: 650px; margin-bottom: 20px;">
-                <img class="card-img-top" src="/src/images/{{image}}" style="min-height: 225px;" />
+                <img class="card-img-top" src="{{image}}" style="min-height: 225px;" />
                 <div class="card-block">
-                    <h4 class="card-title">{{name}}</h4>
-                    <p class="card-text" style="min-height:280px;">{{ description }}</p>
+                    <h4 class="card-title">{{title}}</h4>
+                    <p class="card-text"
+                        style="min-height:280px;">{{shortInstructions}}</p>
                     <a href="./create/{{id}}" class="btn btn-success">Info</a>
                 </div>
             </div>

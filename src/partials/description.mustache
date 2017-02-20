@@ -2,16 +2,16 @@
 <div id="receipt"></div>
 <hr>
 
-<h1>{{dish.name}}</h1>
+<h1>{{dish.title}}</h1>
 {{!Inject ingredients template here}}
 <div id="ingredients"></div>
 <hr>
 
 <div style="margin-bottom: 20px;">
-  <img src=/src/images/{{dish.image}} />
+  <img src={{dish.image}} />
 </div>
 <div>
-  <p>{{dish.description}}</p>
+  <p>{{dish.instructions}}</p>
 </div>
 <button id="addDishButton" data-id="{{dish.id}}" class="btn btn-success">Add</button>
 <button id="backButton" class="btn btn-danger">Back</button>

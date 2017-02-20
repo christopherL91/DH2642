@@ -10,7 +10,7 @@ export default async (container, dinnerModel) => {
         title: 'Home',
     });
 
-    const update = (payload) => {};
+    const update = payload => {};
     dinnerModel.addObserver('homeView', update);
     return {};
 };
