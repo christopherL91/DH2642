@@ -3,7 +3,6 @@
 import 'babel-polyfill';
 
 import axios from 'axios';
-
 import page from 'page';
 
 import {loadTemplate} from './utils/templates.js';
@@ -29,9 +28,6 @@ import PrintController from './controllers/print.js';
 import DescriptionController from './controllers/description.js';
 import AboutController from './controllers/about.js';
 import ErrorController from './controllers/error.js';
-
-// Data
-import {dishes} from './data/dishes.js';
 
 // API util
 import API from './utils/api.js';

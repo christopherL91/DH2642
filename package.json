@@ -4,14 +4,14 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "npm-run-all --parallel watch browse",
-        "browse": "browser-sync start --s --index 'index.html' --files 'build/**/*' --no-notify",
-        "build": "rollup -c",
-        "watch": "nodemon --exec 'npm run build' --watch src"
+        "start": "webpack-dev-server --open"
     },
     "dependencies": {
         "axios": "0.10.0",
+        "babel-core": "^6.23.1",
+        "babel-loader": "^6.3.2",
         "babel-plugin-external-helpers": "^6.22.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
         "babel-polyfill": "^6.22.0",
         "babel-preset-env": "^1.1.8",
         "bootstrap": "^4.0.0-alpha.6",
@@ -26,6 +26,9 @@
         "rollup-plugin-commonjs": "^7.0.0",
         "rollup-plugin-node-resolve": "^2.0.0",
         "rollup-plugin-replace": "^1.1.1",
-        "rx-dom": "^7.0.3"
+        "rx-dom": "^7.0.3",
+        "spin.js": "^2.3.2",
+        "webpack": "^2.2.1",
+        "webpack-dev-server": "^2.4.1"
     }
 }

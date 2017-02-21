@@ -45,7 +45,7 @@ export default (client) => {
             return client.get(url)
                 .then(response => {
                     const data = response.data;
-                    const type = getType(data.dishTypes); // Monkey patch!!!
+                    const type = getType(data.dishTypes); // Monkey patch!
                     const instructions = data.instructions;
                     const shortInstructions = instructions? `${instructions.substring(0, 100)}...`: null;
                     const dish = Object.assign(response.data, {type, shortInstructions});

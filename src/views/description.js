@@ -30,8 +30,9 @@ export default async (id, container, dinnerModel) => {
         total: menu.total,
     });
 
+    const ingredients = dinnerModel.getIngredients(dish);
     ingredientsNode.innerHTML = Mustache.render(ingredientsTemplate, {
-        ingredients: dinnerModel.getIngredients(dish),
+        ingredients,
         total: ingredients.cost,
     });
 

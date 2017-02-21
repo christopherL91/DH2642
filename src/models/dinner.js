@@ -15,7 +15,6 @@ export default class {
     constructor(api, numberOfGuests = 3) {
         this.numberOfGuests = numberOfGuests;
         this.api = api;
-        this.cache = new Map();
         this.observers = new Map(); // view -> update(arg)
         this.menu = {}; // type -> id
     }
