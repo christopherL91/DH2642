@@ -11,10 +11,10 @@ import {
 } from '../constants.js';
 
 const opts = {
-    lines: 13, // The number of lines to draw
-    length: 28, // The length of each line
-    width: 14, // The line thickness
-    radius: 42, // The radius of the inner circle
+    lines: 10, // The number of lines to draw
+    length: 10, // The length of each line
+    width: 4, // The line thickness
+    radius: 10, // The radius of the inner circle
     scale: 1, // Scales overall size of the spinner
     corners: 1, // Corner roundness (0..1)
     color: '#000', // #rgb or #rrggbb or array of colors
