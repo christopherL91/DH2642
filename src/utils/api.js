@@ -34,7 +34,7 @@ export default (client) => {
             const {results} = response.data; // result from search
             const ids = R.pluck('id')(results);
             return Promise.all(ids.map(recipeInfo));
-        });
+        }).catch(err => alert(err.toString()));
     };
 
     const recipeInfo = (id) => {
@@ -51,7 +51,7 @@ export default (client) => {
                     const dish = Object.assign(response.data, {type, shortInstructions});
                     cache.set(id, dish);
                     return dish;
-                });
+                }).catch(err => alert(err.toString()));
         }
     };
     return {query, recipeInfo};

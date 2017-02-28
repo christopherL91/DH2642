@@ -38,7 +38,7 @@ const viewNode = appNode.querySelector('#view');
 // Create new API
 const api = API(axios.create({
     baseURL: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/',
-    timeout: 5000,
+    timeout: 10000,
     headers: {'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'}
 }));
 
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const view = await createView(viewNode, dinnerModel);
             const createController = new CreateController(view, dinnerModel);
         } catch(err) {
+            console.log('ERROR', err);
             // handle error
             const view = await errorView(err, dinnerModel);
             const errorController = new ErrorController(view, dinnerModel);
