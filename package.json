@@ -1,11 +1,21 @@
 {
-  "name": "DH2642",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:christopherL91/DH2642.git",
-  "author": "Christopher Lillthors <christopher.lillthors@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "angular": "^1.6.2"
-  }
+    "name": "DH2642",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:christopherL91/DH2642.git",
+    "author": "Christopher Lillthors <christopher.lillthors@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "superstatic -c superstatic.json --port 8080 --host 0.0.0.0"
+    },
+    "dependencies": {
+        "angular": "^1.6.2",
+        "angular-animate": "^1.6.2",
+        "angular-cookies": "^1.6.2",
+        "angular-resource": "^1.6.2",
+        "angular-route": "^1.6.2",
+        "angular-touch": "^1.6.2",
+        "angular-ui-bootstrap": "^2.5.0",
+        "superstatic": "^4.0.3"
+    }
 }
