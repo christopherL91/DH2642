@@ -4,20 +4,47 @@
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search. -->
 
-<input ng-model="query"/>
-<select ng-model="type" name="dishType" ng-change="search(query, type)">
-    <option value="appetizer"> Starter</option>
-    <option value="main course">Main</option>
-    <option value="dessert">Dessert</option>
-</select>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <form class="form">
+          <div class="row">
+            <div class="col-sm-8">
+              <input ng-model="query" class="form-control" placeholder="Search dishes" />
+            </div>
+            <div class="col-sm-4">
+              <select name="dishType"
+                ng-options="option.name for option in options"
+                ng-model="selectedOption">
+              </select>
+              <button ng-click="search(query, selectedOption.value)" class="btn btn-primary btn-medium">Find</button>
+            </div>
+          </div>
 
-<button ng-click="search(query, type)">Find</button>
-{{status}}
-<ul>
-    <li ng-repeat="dish in dishes">
-        <img ng-src="https://spoonacular.com/recipeImages/{{dish.image}}"/>
-        {{dish.title}}
-        <a ng-href="/dish/{{dish.id}}">View more</a>
-        Dish ready in {{dish.readyInMinutes}} minutes
-    </li>
-</ul>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-success" role="alert">
+        {{ status }}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="dish in dishes">
+      <div href="#" class="thumbnail text-center">
+        <img ng-src="https://spoonacular.com/recipeImages/{{dish.image}}" width="100%;" />
+        <h5 class="h5">{{dish.title}}</h5>
+        <p>
+          <a ng-href="/dish/{{dish.id}}" class="btn btn-success btn-medium">View more</a>
+        </p>
+        <p>
+          Dish ready in {{dish.readyInMinutes}} minutes
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

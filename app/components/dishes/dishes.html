@@ -3,3 +3,46 @@
 
 <!-- TODO in Lab 5: Display the dish information including image, Description,
 Instructions, Ingredients and total cost. -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="thumbnail">
+        <img src="{{ data.image }}" alt="dish" />
+        <h4 class="text-center">
+          {{ data.title }}
+        </h4>
+        <table class="table">
+          <thead>
+            <tr>
+                <th data-field="quantity">Quantity</th>
+                <th data-field="name" class="">Name</th>
+                <th data-field="cost">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="ingredient in data.extendedIngredients.ingredients">
+                <td>{{ ingredient.amount }} {{ ingredient.unit }}</td>
+                <td class="">{{ ingredient.name }}</td>
+                <td class="">{{ ingredient.cost }}</td>
+            </tr>
+            <tr>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>Total: <strong>{{ data.extendedIngredients.total }}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-center">
+          <span>Tags: </span><span class="label label-success">{{ data.type }}</span>
+        </p>
+        <p class="text-center" style="margin-top: 50px;">
+          <button ng-click="back()" class="btn btn-default btn-medium">Back</button>
+          <button ng-click="addDish(data)" class="btn btn-success btn-medium">Add</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

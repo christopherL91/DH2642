@@ -6,3 +6,12 @@ People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGue
 purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace
 this with Total price of the menu -->
 Total number of guest: {{getNumberOfGuests()}}
+<div class="container">
+  <div class="row">
+    {{ menu }}
+    <div class="col-sm-12">
+      <div ng-repeat="item in menu">
+      </div>
+    </div>
+  </div>
+</div>

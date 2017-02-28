@@ -7,6 +7,7 @@
 
         function Dinner($resource, $cookies) {
             let numberOfGuests = 2;
+            let YOLO = 1;
             const menu = []; // type -> dish
 
             // Monkey patch
@@ -42,18 +43,30 @@
                         'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
                     },
                     transformResponse: function(resp, headersGetter, status) {
-                        const data = JSON.parse(resp);
-                        return Object.assign(data, {type: getType(data.dishTypes)});
+                      let total = 0;
+                      const data = JSON.parse(resp);
+                      const ingredients = data.extendedIngredients.map(function (ingredient) {
+                        const cost = ingredient.amount * YOLO;
+                        total = total + cost;
+                        return Object.assign(ingredient, {cost})
+                      })
+                      return Object.assign(data, {
+                        type: getType(data.dishTypes),
+                        extendedIngredients: {
+                          total,
+                          ingredients,
+                        },
+                      });
                     },
                 },
             });
 
             this.addToMenu = function(dish) {
-                this.menu[dish.type] = dish;
+                menu[dish.type] = dish;
             }
 
             this.deleteFromMenu = function(dish) {
-                delete this.menu[dish.type];
+                delete menu[dish.type];
             }
 
             this.getMenu = function() {
