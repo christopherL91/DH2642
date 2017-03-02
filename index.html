@@ -10,44 +10,42 @@
         <title>Food app</title>
     </head>
     <body>
-        <div ng-app="app" class="container">
+        <div ng-app="App">
           <div ng-controller="HomeCtrl">
-            <a type="button" class="btn btn-primary" href="/search">Create new dinner</a>
           </div>
           <div ng-controller="DishesCtrl">
-            <a type="button" class="btn btn-primary" href="/search">Create new dinner</a>
           </div>
           <div ng-controller="DinnerCtrl">
-            <a type="button" class="btn btn-primary" href="/search">Create new dinner</a>
+
+            People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
+
+            <!-- TODO in Lab 5: Display the items on the menu with cost for each -->
+
+            <!-- Displaying number of guests both in input box and here is redundant. It is here only for the example
+            purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace
+            this with Total price of the menu -->
+            Total number of guest: {{getNumberOfGuests()}}
+            <div class="container">
+              <div class="row">
+                {{ menu }}
+                <div class="col-sm-12">
+                  <div ng-repeat="item in menu">
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div ng-controller="SearchCtrl">
-            <a type="button" class="btn btn-primary" href="/search">Create new dinner</a>
           </div>
         </div>
+
         <!--libs-->
-        <script src="node_modules/angular/angular.min.js"></script>
-        <script src="node_modules/angular-route/angular-route.min.js"></script>
-        <script
-                src="node_modules/angular-resource/angular-resource.min.js">
-        </script>
-        <script
-                src="node_modules/angular-cookies/angular-cookies.min.js">
-        </script>
-        <script src="node_modules/angular-touch/angular-touch.min.js"></script>
-        <script src="node_modules/angular-animate/angular-animate.min.js"></script>
-        <script
-                src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js">
-        </script>
+        <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+        <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="app/js/dist/app.min.js"></script>
 
-        <!--app-->
-
-        <!--
-        <script type="text/ng-template" src="app/views/dinner-sidebar.html" id="dinner-sidebar.html" ng-controller="DinnerCtrl"></script>
-        <script type="text/ng-template" src="app/views/dishes.html" id="dishes.html" ng-controller="DinnerCtrl"></script>
-        <script type="text/ng-template" src="app/views/home.html" id="home.html" ng-controller="DinnerCtrl"></script>
-        <script type="text/ng-template" src="app/views/search.html" id="search.html" ng-controller="DinnerCtrl"></script>
-
-        ->
-        <script src="js/dist/app.min.js"></script>
     </body>
 </html>
