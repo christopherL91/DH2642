@@ -6,7 +6,7 @@
         .controller('DinnerCtrl', DinnerCtrl);
 
         function DinnerCtrl($scope, Dinner) {
-            $scope.dinner = Dinner;
+            $scope.menu = Dinner.getMenu();
             $scope.numberOfGuests = Dinner.getNumberOfGuests();
 
             $scope.setNumberOfGuest = function(number){
@@ -17,7 +17,7 @@
                 return Dinner.getNumberOfGuests();
             }
 
-            $scope.$watch('dinner.getMenu()', function(newval,oldval,scope) {
+            $scope.$watch('menu', function(newval,oldval,scope) {
               console.log({newval, oldval});
               $scope.menu = newval;
             });

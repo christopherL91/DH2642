@@ -8,7 +8,7 @@
         function Dinner($resource, $cookies) {
             let numberOfGuests = 2;
             let YOLO = 1;
-            const menu = []; // type -> dish
+            const menu = {total: 0}; // type -> dish
 
             // Monkey patch
             function getType(dishTypes) {
@@ -62,10 +62,18 @@
             });
 
             this.addToMenu = function(dish) {
+                if (!Object.keys(menu).includes(dish.type)) {
+                  menu.total += dish.extendedIngredients.total;
+                } else {
+                  const cost = menu[dish.type].extendedIngredients.total;
+                  menu.total -= cost;
+                  menu.total += dish.extendedIngredients.total;
+                }
                 menu[dish.type] = dish;
             }
 
             this.deleteFromMenu = function(dish) {
+                menu.total -= dish.extendedIngredients.total;
                 delete menu[dish.type];
             }
 

@@ -8,10 +8,29 @@ this with Total price of the menu -->
 Total number of guest: {{getNumberOfGuests()}}
 <div class="container">
   <div class="row">
-    {{ menu }}
-    <div class="col-sm-12">
-      <div ng-repeat="item in menu">
-      </div>
+    <div class="col-sm-3">
+      <table class="table">
+        <thead>
+            <tr>
+                <th data-field="name">Name</th>
+                <th data-field="type">Type</th>
+                <th data-field="total">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in menu">
+                <td>{{ item.title }}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.extendedIngredients.total }}
+                <!--<td>{{cost}} SEK</td>-->
+            </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Sum: {{ menu.total }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
