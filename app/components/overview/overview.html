@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-4" ng-repeat="(key,value) in menu" ng-if="key != 'total'">
+          <div class="thumbnail text-center">
+            <h5 class="h5">{{value.title}}</h5>
+            <h5 class="h5">{{value.type}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

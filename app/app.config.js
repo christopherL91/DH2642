@@ -23,6 +23,10 @@
                     templateUrl: 'app/components/dishes/dishes.html',
                     controller: 'DishesCtrl',
                 })
+                .when('/overview', {
+                  templateUrl: 'app/components/overview/overview.html',
+                  controller: 'OverViewCtrl',
+                })
                 .otherwise({
                     redirectTo: '/',
                 });
