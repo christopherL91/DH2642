@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('App')
         .factory('Dinner', Dinner);
 
         function Dinner($resource, $cookies) {

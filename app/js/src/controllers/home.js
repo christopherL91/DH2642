@@ -1,9 +1,5 @@
-(function() {
-    'use strict';
+app.controller('HomeCtrl', ['$scope',
+  function($scope) {
 
-    angular
-        .module('app')
-        .controller('HomeCtrl', HomeCtrl);
-
-        function HomeCtrl($scope) {}
-})();
+  }
+]);

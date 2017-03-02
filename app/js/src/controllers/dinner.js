@@ -1,25 +1,14 @@
-(function() {
-    'use strict';
+app.controller('DinnerCtrl', ['$scope', 'Dinner',
+  function($scope,Dinner) {
+    $scope.dinner = Dinner;
+    $scope.numberOfGuests = Dinner.getNumberOfGuests();
 
-    angular
-        .module('app')
-        .controller('DinnerCtrl', DinnerCtrl);
+    $scope.setNumberOfGuest = function(number){
+        Dinner.setNumberOfGuests(number);
+    }
 
-        function DinnerCtrl($scope, Dinner) {
-            $scope.dinner = Dinner;
-            $scope.numberOfGuests = Dinner.getNumberOfGuests();
-
-            $scope.setNumberOfGuest = function(number){
-                Dinner.setNumberOfGuests(number);
-            }
-
-            $scope.getNumberOfGuests = function() {
-                return Dinner.getNumberOfGuests();
-            }
-
-            $scope.$watch('dinner.getMenu()', function(newval,oldval,scope) {
-              console.log({newval, oldval});
-              $scope.menu = newval;
-            });
-        }
-})();
+    $scope.getNumberOfGuests = function() {
+        return Dinner.getNumberOfGuests();
+    }
+  }
+]);
