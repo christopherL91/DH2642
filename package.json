@@ -17,5 +17,12 @@
         "angular-touch": "^1.6.2",
         "angular-ui-bootstrap": "^2.5.0",
         "superstatic": "^4.0.3"
-    }
+    },
+    "devDependencies": {
+       "del": "^1.2.0",
+       "gulp": "^3.9.0",
+       "gulp-concat": "^2.6.0",
+       "gulp-jshint": "^1.11.2",
+       "gulp-sourcemaps": "^1.5.2"
+     }
 }
