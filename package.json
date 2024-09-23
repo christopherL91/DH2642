@@ -19,7 +19,7 @@
         "npm-run-all": "^4.0.1",
         "page": "^1.7.1",
         "ramda": "^0.23.0",
-        "rollup": "^0.41.4",
+        "rollup": "^3.29.5",
         "rollup-plugin-babel": "^2.7.1",
         "rollup-plugin-commonjs": "^7.0.0",
         "rollup-plugin-node-resolve": "^2.0.0"
